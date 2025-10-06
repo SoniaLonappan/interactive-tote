@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Tote Bag</title>
+  <style>
+  .container {
+    position: relative;
+    text-align: center;
+  }
+  #tote {
+    max-width: 400px;
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+  }
+  #popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 300px;
+    z-index: 10;
+  }
+  #popup button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #popup button:hover {
+    background-color: #555;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- Step 3: Replace the simple <img> with this container -->
+<div class="container">
+  <img src="C:\Users\jifin\Desktop\ShoreLiner\Sample_Tote.png" id="tote" alt="Tote Bag">
+  
+  <div id="popup">
+    <h2>Our Company</h2>
+    <p>We create high-quality, eco-friendly tote bags.</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+  const tote = document.getElementById('tote');
+  const popup = document.getElementById('popup');
+
+  tote.addEventListener('click', function(e) {
+    // Define the clickable area (adjust these numbers)
+    if (e.offsetX > 100 && e.offsetX < 250 && e.offsetY > 150 && e.offsetY < 350) {
+      popup.style.display = 'block';
+    }
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+</script>
+
+
+</body>
+</html>
